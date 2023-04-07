@@ -1,0 +1,75 @@
+openapi: 3.0.0
+info:
+  title: Laravel API
+  description: 'API documentation for the Laravel project'
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:8002/api
+
+paths:
+  /categories:
+    get:
+      summary: Get all categories
+      operationId: getCategories
+      tags:
+        - Categories
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+
+  /products:
+    get:
+      summary: Get all products
+      operationId: getProducts
+      tags:
+        - Products
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+
+components:
+  schemas:
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+      required:
+        - id
+        - name
+
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        description:
+          type: string
+        category_id:
+          type: integer
+          format: int64
+      required:
+        - id
+        - name
+        - category_id
