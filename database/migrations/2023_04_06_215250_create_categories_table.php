@@ -8,9 +8,9 @@ class CreateCategoriesTable extends Migration
 {
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('categorises', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('names');
             $table->integer('index')->default(0);
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->foreign('parent_id')->references('id')->on('categories')->onDelete('cascade');
