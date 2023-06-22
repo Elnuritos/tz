@@ -20,7 +20,7 @@ class CategoryFactory extends Factory
     {     return [
         'name' => $this->faker->unique()->word(),
         'parent_id' => Category::inRandomOrder()->first()?->id,
-        'index' => $this->faker->numberBetween(0, 100),
+        'inddex' => $this->faker->numberBetween(0, 100),
     ];
     }
 }
